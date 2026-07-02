@@ -1,13 +1,18 @@
-function mainLayout(){
+import Navbar from "../components/layout/Navbar";
+import Footer from "../components/layout/Footer";
 
-    return(
+function MainLayout({ children }) {
+  return (
+    <>
+      <Navbar />
 
-        <>
+      <main>
+        {children}
+      </main>
 
-        </>
-
-    )
-
+      <Footer />
+    </>
+  );
 }
 
-export default mainLayout
+export default MainLayout;

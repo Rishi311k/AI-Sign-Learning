@@ -1,4 +1,4 @@
-function coursesPage(){
+function CoursesPage(){
 
     return(
         <h1>Courses Page</h1>
@@ -6,4 +6,4 @@ function coursesPage(){
 
 }
 
-export default coursesPage
+export default CoursesPage

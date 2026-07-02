@@ -1,4 +1,4 @@
-function assessmentPage(){
+function AssessmentPage(){
 
     return(
         <h1>Assessment Page</h1>
@@ -6,4 +6,4 @@ function assessmentPage(){
 
 }
 
-export default assessmentPage
+export default AssessmentPage

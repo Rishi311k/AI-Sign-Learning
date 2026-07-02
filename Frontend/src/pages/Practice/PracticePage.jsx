@@ -1,4 +1,4 @@
-function practicePage(){
+function PracticePage(){
 
     return(
         <h1>Practice Page</h1>
@@ -6,4 +6,4 @@ function practicePage(){
 
 }
 
-export default practicePage
+export default PracticePage

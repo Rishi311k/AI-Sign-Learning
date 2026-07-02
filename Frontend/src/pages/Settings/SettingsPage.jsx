@@ -1,4 +1,4 @@
-function settingsPage(){
+function SettingsPage(){
 
     return(
         <h1>Settings Page</h1>
@@ -6,4 +6,4 @@ function settingsPage(){
 
 }
 
-export default settingsPage
+export default SettingsPage
