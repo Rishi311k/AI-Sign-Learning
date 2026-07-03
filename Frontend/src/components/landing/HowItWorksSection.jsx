@@ -1,98 +1,105 @@
-import {
-  UserPlus,
-  GraduationCap,
-  Camera,
-  Award,
-} from "lucide-react";
-
 function HowItWorksSection() {
-
   const steps = [
     {
-      icon: UserPlus,
-      title: "Create an Account",
+      number: "01",
+      title: "Create Account",
       description:
-        "Sign up and create your personalized learning profile.",
+        "Register and create your personalized learning profile.",
+      color: "bg-blue-500",
     },
-
     {
-      icon: GraduationCap,
-      title: "Learn",
+      number: "02",
+      title: "Learn ASL",
       description:
-        "Complete interactive lessons designed for every skill level.",
+        "Study interactive lessons designed for beginners and advanced learners.",
+      color: "bg-purple-500",
     },
-
     {
-      icon: Camera,
+      number: "03",
       title: "Practice with AI",
       description:
-        "Use your webcam to practice signs with real-time recognition.",
+        "Use your webcam to practice signs and receive instant AI feedback.",
+      color: "bg-green-500",
     },
-
     {
-      icon: Award,
-      title: "Get Instant Feedback",
+      number: "04",
+      title: "Get Assessed",
       description:
-        "Receive AI-powered evaluation and improve your accuracy.",
+        "Complete assessments, earn scores, and track your improvement.",
+      color: "bg-orange-500",
     },
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-24 bg-white">
 
       <div className="max-w-7xl mx-auto px-6">
 
-        <div className="text-center">
+        {/* Heading */}
 
-          <h2 className="text-4xl font-bold">
-            How It Works
+        <div className="text-center max-w-3xl mx-auto">
+
+          <span className="bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold">
+            HOW IT WORKS
+          </span>
+
+          <h2 className="mt-6 text-4xl md:text-5xl font-bold text-gray-900">
+            Learn in{" "}
+            <span className="text-blue-600">
+              Four Simple Steps
+            </span>
           </h2>
 
-          <p className="text-gray-600 mt-4">
-            Learn sign language in four simple steps.
+          <p className="mt-6 text-lg text-gray-600 leading-8">
+            Start learning sign language with AI in just a few easy steps.
           </p>
 
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+        {/* Timeline */}
 
-          {steps.map((step, index) => {
+        <div className="relative mt-24">
 
-            const Icon = step.icon;
+          {/* Line */}
 
-            return (
+          <div className="hidden lg:block absolute top-10 left-0 right-0 h-1 bg-gray-200"></div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 relative">
+
+            {steps.map((step) => (
 
               <div
-                key={index}
-                className="bg-white rounded-xl shadow-lg p-8 text-center hover:-translate-y-2 transition duration-300"
+                key={step.number}
+                className="text-center"
               >
 
-                <div className="flex justify-center">
+                {/* Circle */}
 
-                  <div className="bg-blue-100 rounded-full p-5">
+                <div
+                  className={`w-20 h-20 rounded-full ${step.color} text-white text-2xl font-bold flex items-center justify-center mx-auto shadow-lg`}
+                >
+                  {step.number}
+                </div>
 
-                    <Icon
-                      className="text-blue-600"
-                      size={40}
-                    />
+                {/* Card */}
 
-                  </div>
+                <div className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 mt-8 p-8">
+
+                  <h3 className="text-2xl font-semibold mb-4">
+                    {step.title}
+                  </h3>
+
+                  <p className="text-gray-600 leading-7">
+                    {step.description}
+                  </p>
 
                 </div>
 
-                <h3 className="text-2xl font-semibold mt-6">
-                  {step.title}
-                </h3>
-
-                <p className="text-gray-600 mt-4">
-                  {step.description}
-                </p>
-
               </div>
 
-            );
+            ))}
 
-          })}
+          </div>
 
         </div>
 
@@ -100,7 +107,6 @@ function HowItWorksSection() {
 
     </section>
   );
-
 }
 
 export default HowItWorksSection;

@@ -1,81 +1,91 @@
-import {
-  Camera,
-  BookOpen,
-  BarChart3,
-  ClipboardCheck,
-} from "lucide-react";
-
 function FeaturesSection() {
   const features = [
     {
-      icon: Camera,
+      icon: "🤖",
       title: "AI Recognition",
       description:
-        "Detect hand signs instantly using computer vision and AI.",
+        "Detect sign language gestures in real time using advanced AI and computer vision.",
     },
     {
-      icon: BookOpen,
-      title: "Interactive Courses",
+      icon: "📚",
+      title: "Interactive Lessons",
       description:
-        "Learn sign language step by step with structured lessons.",
+        "Learn step-by-step with structured ASL lessons, quizzes, and practice sessions.",
     },
     {
-      icon: BarChart3,
+      icon: "📈",
       title: "Progress Tracking",
       description:
-        "Monitor your learning progress with detailed analytics.",
+        "Monitor your learning journey with detailed analytics and achievements.",
     },
     {
-      icon: ClipboardCheck,
-      title: "Smart Assessment",
+      icon: "🎯",
+      title: "AI Assessment",
       description:
-        "Receive AI-powered feedback and performance reports.",
+        "Receive instant feedback, scores, and suggestions to improve your signing skills.",
     },
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section
+      id="features"
+      className="py-24 bg-gradient-to-b from-white to-blue-50"
+    >
       <div className="max-w-7xl mx-auto px-6">
 
-        <div className="text-center">
+        {/* Heading */}
 
-          <h2 className="text-4xl font-bold">
-            Why Choose Our Platform?
+        <div className="text-center max-w-3xl mx-auto">
+
+          <span className="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">
+            FEATURES
+          </span>
+
+          <h2 className="mt-6 text-4xl md:text-5xl font-bold text-gray-900">
+            Why Choose{" "}
+            <span className="text-blue-600">
+              AI Sign Learning?
+            </span>
           </h2>
 
-          <p className="mt-4 text-gray-600">
-            Learn sign language with AI-powered tools,
-            personalized practice, and real-time feedback.
+          <p className="mt-6 text-gray-600 text-lg leading-8">
+            Learn sign language faster with Artificial Intelligence,
+            real-time gesture recognition, interactive lessons,
+            and personalized assessments.
           </p>
 
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-14">
+        {/* Cards */}
 
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-20">
 
-            return (
-              <div
-                key={index}
-                className="bg-blue-50 rounded-xl p-8 shadow hover:shadow-lg transition duration-300"
-              >
-                <Icon
-                  className="text-blue-600"
-                  size={40}
-                />
+          {features.map((feature) => (
 
-                <h3 className="text-xl font-semibold mt-6">
-                  {feature.title}
-                </h3>
+            <div
+              key={feature.title}
+              className="bg-white rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-8"
+            >
 
-                <p className="text-gray-600 mt-3">
-                  {feature.description}
-                </p>
-
+              <div className="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center text-3xl mb-6">
+                {feature.icon}
               </div>
-            );
-          })}
+
+              <h3 className="text-2xl font-semibold mb-4">
+                {feature.title}
+              </h3>
+
+              <p className="text-gray-600 leading-7">
+                {feature.description}
+              </p>
+
+              <button className="mt-6 text-blue-600 font-semibold hover:translate-x-2 transition-transform">
+                Learn More →
+              </button>
+
+            </div>
+
+          ))}
 
         </div>
 

@@ -12,7 +12,7 @@ import ContactSection from "../../components/landing/ContactSection";
 function LandingPage() {
   return (
     <MainLayout>
-      <HeroSection />
+      <HeroSection /> 
       <FeaturesSection />
       <HowItWorksSection />
       <AILiveDemoSection />

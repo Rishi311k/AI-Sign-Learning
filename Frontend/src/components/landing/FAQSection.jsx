@@ -1,94 +1,92 @@
 import { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
 
 function FAQSection() {
+
   const faqs = [
     {
-      question: "Is this platform free to use?",
+      question: "What is AI Sign Learning?",
       answer:
-        "Yes! You can access the core learning materials and AI-powered practice features for free. Additional premium features may be introduced in the future.",
+        "AI Sign Learning is an AI-powered platform that helps users learn and practice sign language using real-time gesture recognition and interactive lessons.",
     },
     {
-      question: "Can beginners learn sign language here?",
+      question: "Is the platform free to use?",
       answer:
-        "Absolutely. The platform is designed for beginners, intermediate learners, and advanced users with structured learning paths.",
+        "Yes. The basic learning modules are free. Premium features such as advanced assessments and certificates can be added later.",
     },
     {
-      question: "How does AI recognize my hand signs?",
+      question: "Which sign language is supported?",
       answer:
-        "The platform uses MediaPipe to detect hand landmarks and a trained deep learning model to recognize sign language gestures in real time.",
+        "Initially, the platform supports American Sign Language (ASL). Support for additional sign languages can be added in future updates.",
     },
     {
-      question: "Do I need a webcam?",
+      question: "Can I practice using my webcam?",
       answer:
-        "Yes. A webcam is required for real-time sign recognition, practice sessions, and assessments.",
+        "Yes. During practice sessions, the AI analyzes webcam input and provides instant feedback on your hand gestures.",
     },
     {
-      question: "Can I track my progress?",
+      question: "How accurate is the AI model?",
       answer:
-        "Yes. Your completed lessons, practice sessions, quiz scores, and AI assessment results are stored in your dashboard.",
-    },
-    {
-      question: "Will more sign languages be added?",
-      answer:
-        "Yes. The platform is designed to support multiple sign languages such as ASL, ISL, and others in future updates.",
+        "Our target accuracy is above 95% using MediaPipe and TensorFlow-based recognition models.",
     },
   ];
 
-  const [activeIndex, setActiveIndex] = useState(null);
-
-  const toggleFAQ = (index) => {
-    if (activeIndex === index) {
-      setActiveIndex(null);
-    } else {
-      setActiveIndex(index);
-    }
-  };
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-5xl mx-auto px-6">
+    <section className="py-24 bg-white">
 
-        <div className="text-center mb-14">
-          <h2 className="text-4xl font-bold">
+      <div className="max-w-4xl mx-auto px-6">
+
+        <div className="text-center">
+
+          <span className="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">
+            FAQ
+          </span>
+
+          <h2 className="mt-6 text-4xl font-bold">
             Frequently Asked Questions
           </h2>
 
-          <p className="text-gray-600 mt-4">
-            Everything you need to know before getting started.
+          <p className="mt-5 text-gray-600 text-lg">
+            Everything you need to know about our AI-powered sign language platform.
           </p>
+
         </div>
 
-        <div className="space-y-5">
+        <div className="mt-16 space-y-5">
 
           {faqs.map((faq, index) => (
 
             <div
               key={index}
-              className="bg-white rounded-xl shadow-md overflow-hidden"
+              className="bg-gray-50 rounded-2xl shadow-sm overflow-hidden"
             >
 
               <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full flex justify-between items-center p-6 text-left"
+                onClick={() =>
+                  setActiveIndex(activeIndex === index ? null : index)
+                }
+                className="w-full px-8 py-6 flex justify-between items-center text-left"
               >
 
-                <span className="text-lg font-semibold">
+                <span className="font-semibold text-lg">
                   {faq.question}
                 </span>
 
-                {activeIndex === index ? (
-                  <ChevronUp className="text-blue-600" />
-                ) : (
-                  <ChevronDown className="text-blue-600" />
-                )}
+                <span className="text-2xl text-blue-600">
+
+                  {activeIndex === index ? "−" : "+"}
+
+                </span>
 
               </button>
 
               {activeIndex === index && (
 
-                <div className="px-6 pb-6 text-gray-600 leading-7">
+                <div className="px-8 pb-6 text-gray-600 leading-8">
+
                   {faq.answer}
+
                 </div>
 
               )}
@@ -100,6 +98,7 @@ function FAQSection() {
         </div>
 
       </div>
+
     </section>
   );
 }

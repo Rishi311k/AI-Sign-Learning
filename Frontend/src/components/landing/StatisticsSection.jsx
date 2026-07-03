@@ -1,83 +1,92 @@
-import {
-  BookOpen,
-  Users,
-  Target,
-  Globe,
-} from "lucide-react";
-
-function StatisticsSection() {
+function StatsSection() {
 
   const stats = [
     {
-      icon: BookOpen,
-      number: "150+",
-      label: "Interactive Lessons",
+      number: "5K+",
+      title: "Active Learners",
+      icon: "👨‍🎓",
+      color: "from-blue-500 to-cyan-500",
     },
     {
-      icon: Users,
-      number: "5,000+",
-      label: "Active Learners",
+      number: "120+",
+      title: "Interactive Lessons",
+      icon: "📚",
+      color: "from-purple-500 to-pink-500",
     },
     {
-      icon: Target,
-      number: "95%",
-      label: "AI Detection Accuracy",
+      number: "98%",
+      title: "Recognition Accuracy",
+      icon: "🎯",
+      color: "from-green-500 to-emerald-500",
     },
     {
-      icon: Globe,
-      number: "24/7",
-      label: "Learning Available",
+      number: "850+",
+      title: "Certificates Earned",
+      icon: "🏆",
+      color: "from-orange-500 to-yellow-500",
     },
   ];
 
   return (
-    <section className="py-20 bg-blue-600 text-white">
+    <section className="py-24 bg-gray-50">
 
       <div className="max-w-7xl mx-auto px-6">
 
-        <div className="text-center">
+        {/* Heading */}
 
-          <h2 className="text-4xl font-bold">
-            Trusted by Learners Worldwide
+        <div className="text-center max-w-3xl mx-auto">
+
+          <span className="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-semibold">
+            OUR IMPACT
+          </span>
+
+          <h2 className="mt-6 text-4xl md:text-5xl font-bold">
+
+            Trusted by
+
+            <span className="text-blue-600">
+              {" "}Thousands
+            </span>
+
           </h2>
 
-          <p className="mt-4 text-blue-100">
-            Empowering communication through AI-powered sign language education.
+          <p className="mt-6 text-lg text-gray-600 leading-8">
+
+            Empowering learners worldwide through
+            Artificial Intelligence and interactive education.
+
           </p>
 
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+        {/* Cards */}
 
-          {stats.map((stat, index) => {
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-20">
 
-            const Icon = stat.icon;
+          {stats.map((stat) => (
 
-            return (
+            <div
+              key={stat.title}
+              className="bg-white rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-3 transition-all duration-300 p-8 text-center"
+            >
 
               <div
-                key={index}
-                className="bg-white text-gray-900 rounded-xl p-8 text-center shadow-lg hover:scale-105 transition"
+                className={`w-20 h-20 rounded-full bg-gradient-to-r ${stat.color} flex items-center justify-center text-4xl mx-auto shadow-lg`}
               >
-
-                <Icon
-                  size={45}
-                  className="mx-auto text-blue-600"
-                />
-
-                <h3 className="text-4xl font-bold mt-5">
-                  {stat.number}
-                </h3>
-
-                <p className="mt-3 text-gray-600">
-                  {stat.label}
-                </p>
-
+                {stat.icon}
               </div>
 
-            );
+              <h3 className="mt-8 text-4xl font-bold text-gray-900">
+                {stat.number}
+              </h3>
 
-          })}
+              <p className="mt-3 text-gray-600">
+                {stat.title}
+              </p>
+
+            </div>
+
+          ))}
 
         </div>
 
@@ -85,7 +94,6 @@ function StatisticsSection() {
 
     </section>
   );
-
 }
 
-export default StatisticsSection;
+export default StatsSection;

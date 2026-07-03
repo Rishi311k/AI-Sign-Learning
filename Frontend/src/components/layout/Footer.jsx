@@ -2,70 +2,52 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300 mt-16">
+    <footer className="bg-slate-950 text-gray-300">
 
-      <div className="max-w-7xl mx-auto px-6 py-14">
+      <div className="max-w-7xl mx-auto px-6 py-16">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
 
-          {/* About */}
+          {/* Company */}
+
           <div>
+
             <h2 className="text-3xl font-bold text-white">
-              AI Sign
+
+              <span className="text-blue-500">
+                AI
+              </span>{" "}
+              Sign Learning
+
             </h2>
 
-            <p className="mt-4 text-gray-400 leading-7">
-              AI-powered Sign Language Learning &
-              Assessment Platform that enables
-              learners to practice, assess and
-              improve their communication skills.
+            <p className="mt-5 leading-7">
+
+              Learn sign language through AI-powered
+              lessons, real-time gesture recognition,
+              and interactive assessments.
+
             </p>
+
           </div>
 
           {/* Quick Links */}
+
           <div>
 
-            <h3 className="text-white text-xl font-semibold mb-5">
+            <h3 className="text-xl font-semibold text-white mb-5">
               Quick Links
             </h3>
 
             <ul className="space-y-3">
 
-              <li>
-                <Link
-                  to="/"
-                  className="hover:text-blue-400"
-                >
-                  Home
-                </Link>
-              </li>
+              <li><Link to="/">Home</Link></li>
 
-              <li>
-                <Link
-                  to="/courses"
-                  className="hover:text-blue-400"
-                >
-                  Courses
-                </Link>
-              </li>
+              <li><Link to="/courses">Courses</Link></li>
 
-              <li>
-                <Link
-                  to="/practice"
-                  className="hover:text-blue-400"
-                >
-                  Practice
-                </Link>
-              </li>
+              <li><Link to="/practice">Practice</Link></li>
 
-              <li>
-                <Link
-                  to="/assessment"
-                  className="hover:text-blue-400"
-                >
-                  Assessment
-                </Link>
-              </li>
+              <li><Link to="/assessment">Assessment</Link></li>
 
             </ul>
 
@@ -75,7 +57,7 @@ function Footer() {
 
           <div>
 
-            <h3 className="text-white text-xl font-semibold mb-5">
+            <h3 className="text-xl font-semibold text-white mb-5">
               Resources
             </h3>
 
@@ -83,11 +65,11 @@ function Footer() {
 
               <li>Documentation</li>
 
-              <li>Help Center</li>
-
-              <li>FAQs</li>
+              <li>FAQ</li>
 
               <li>Privacy Policy</li>
+
+              <li>Terms & Conditions</li>
 
             </ul>
 
@@ -97,37 +79,17 @@ function Footer() {
 
           <div>
 
-            <h3 className="text-white text-xl font-semibold mb-5">
+            <h3 className="text-xl font-semibold text-white mb-5">
               Contact
             </h3>
 
-            <p className="mb-2">
-              📧 support@aisignlearning.com
-            </p>
+            <div className="space-y-4">
 
-            <p className="mb-2">
-              📍 India
-            </p>
+              <p>📧 support@aisignlearning.com</p>
 
-            <div className="mt-5">
+              <p>📞 +91 98765 43210</p>
 
-              <a
-                href="https://github.com/Rishi311k"
-                target="_blank"
-                rel="noreferrer"
-                className="block hover:text-blue-400"
-              >
-                GitHub
-              </a>
-
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-                className="block hover:text-blue-400 mt-2"
-              >
-                LinkedIn
-              </a>
+              <p>📍 India</p>
 
             </div>
 
@@ -135,9 +97,11 @@ function Footer() {
 
         </div>
 
-        <div className="border-t border-gray-700 mt-10 pt-6 text-center">
+        {/* Divider */}
 
-          © 2026 AI Sign Language Learning Platform. All Rights Reserved.
+        <div className="border-t border-slate-700 mt-12 pt-8 text-center text-gray-400">
+
+          © 2026 AI Sign Learning Platform. All rights reserved.
 
         </div>
 
