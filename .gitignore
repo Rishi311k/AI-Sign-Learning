@@ -40,27 +40,36 @@ Thumbs.db
 build/
 dist/
 *.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
 
 # ==========================
 # AI Generated Files
 # ==========================
+
+# Landmark captures
 backend/captures/
 captures/
 
-# Ignore trained models (add later)
+# Datasets
+datasets/
+!datasets/.gitkeep
+
+# Trained Models
 models/
+!models/.gitkeep
+
 *.h5
 *.keras
 *.pt
 *.pth
 *.onnx
 *.tflite
+*.joblib
+*.pkl
 
-# Large datasets
-datasets/
-
-# Keep folder structure
-!datasets/.gitkeep
+# CSVs generated during preprocessing/training
+#*.csv
 
 # ==========================
 # Node / React

@@ -1,77 +1,31 @@
-import cv2
+from fastapi import FastAPI
 
-from ai.hand_tracking.camera import Camera
-from ai.hand_tracking.detector import HandDetector
-from ai.hand_tracking.fps import FPSCounter
-from ai.utils.landmark_utils import print_landmarks
-from ai.utils.file_utils import save_landmarks
+from app.api.routers.health import router as health_router
+from app.api.routers.prediction import router as prediction_router
+from app.api.routers.lesson import router as lesson_router
+from app.api.routers.assessment import router as assessment_router
+from app.api.routers.session import router as session_router
+from app.core.logging_config import setup_logging
 
-def main():
-    camera = Camera()
-    detector = HandDetector()
-    fps_counter = FPSCounter()
+logger = setup_logging()
 
-    try:
-        camera.start()
+logger.info("Starting AI Sign Language Backend...")
+from app.core.config import settings
 
-        print("Camera started.")
-        print("Press Q to quit.")
+app = FastAPI(
+    title=settings.PROJECT_NAME,
+    version=settings.VERSION,
+    description="Backend API for AI Sign Language Learning Platform"
+)
 
-        while True:
-            frame = camera.read_frame()
+app.include_router(health_router)
+app.include_router(prediction_router)
+app.include_router(lesson_router)
+app.include_router(assessment_router)
+app.include_router(session_router)
 
-            if frame is None:
-                break
-
-            frame, hand_count, results = detector.process_frame(frame)
-            print_landmarks(results)
-            fps = fps_counter.get_fps()
-
-            cv2.putText(
-                frame,
-                f"FPS: {fps}",
-                (10, 30),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                0.8,
-                (0, 255, 0),
-                2,
-            )
-
-            if hand_count == 0:
-                cv2.putText(
-                    frame,
-                    "No Hand Detected",
-                    (10, 70),
-                    cv2.FONT_HERSHEY_SIMPLEX,
-                    0.8,
-                    (0, 0, 255),
-                    2,
-                )
-            else:
-                cv2.putText(
-                    frame,
-                    f"Hands Detected: {hand_count}",
-                    (10, 70),
-                    cv2.FONT_HERSHEY_SIMPLEX,
-                    0.8,
-                    (255, 0, 0),
-                    2,
-                )
-
-            cv2.imshow("AI Sign Language Platform", frame)
-
-            key = cv2.waitKey(1) & 0xFF
-
-            if key == ord("s"):
-                save_landmarks(results)
-
-            elif key == ord("q"):
-                break
-
-    finally:
-        detector.close()
-        camera.release()
-
-
-if __name__ == "__main__":
-    main()
+@app.get("/")
+def root():
+    return {
+        "message": "Welcome to AI Sign Language Learning API"
+    }

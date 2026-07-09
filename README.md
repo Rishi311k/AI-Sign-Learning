@@ -13,7 +13,12 @@ The platform provides interactive learning, real-time gesture recognition, progr
 - ✅ Modern React Frontend
 - ✅ Responsive Landing Page
 - ✅ Authentication Pages
-- ✅ Modular Backend Architecture
+- ✅ FastAPI Backend
+- ✅ RESTful API Architecture
+- ✅ Swagger API Documentation
+- ✅ Lesson Management APIs
+- ✅ Practice Session Management
+- ✅ Assessment Workflow
 - ✅ Webcam Integration
 - ✅ Real-Time MediaPipe Hand Tracking
 - ✅ 21 Hand Landmark Detection
@@ -23,7 +28,8 @@ The platform provides interactive learning, real-time gesture recognition, progr
 - ✅ JSON Landmark Capture Utility
 - ✅ Dataset Explorer
 - ✅ Image Loader Utility
-
+- ✅ Logging Configuration
+- ✅ Centralized Project Configuration
 ---
 
 ## 🚧 Upcoming Features
@@ -51,34 +57,30 @@ AI-Sign-Learning/
 │   ├── app/
 │   │   ├── ai/
 │   │   │   ├── hand_tracking/
-│   │   │   │   ├── camera.py
-│   │   │   │   ├── detector.py
-│   │   │   │   ├── fps.py
-│   │   │   │   └── __init__.py
-│   │   │   │
 │   │   │   ├── gesture_recognition/
-│   │   │   │   └── __init__.py
-│   │   │   │
 │   │   │   └── utils/
-│   │   │       ├── landmark_utils.py
-│   │   │       ├── file_utils.py
-│   │   │       └── __init__.py
 │   │   │
+│   │   ├── api/
+│   │   │   └── routers/
+│   │   │       ├── health.py
+│   │   │       ├── prediction.py
+│   │   │       ├── lesson.py
+│   │   │       ├── assessment.py
+│   │   │       └── session.py
+│   │   │
+│   │   ├── content/
+│   │   ├── core/
+│   │   ├── schemas/
+│   │   ├── services/
 │   │   └── main.py
 │   │
 │   ├── captures/
 │   └── requirements.txt
 │
 ├── frontend/
-│
 ├── datasets/
-│
+├── models/
 ├── scripts/
-│   ├── dataset_explorer.py
-│   ├── image_loader.py
-│   ├── camera_test.py
-│   └── preprocess_dataset.py
-│
 └── README.md
 ```
 
@@ -104,15 +106,20 @@ AI-Sign-Learning/
 - OpenCV
 - MediaPipe
 - NumPy
+- FastAPI
+- Uvicorn
+- Pydantic
 
 ---
 
 ## AI / Machine Learning
 
+- MediaPipe Hands
+- OpenCV
+- Computer Vision
 - TensorFlow *(Upcoming)*
 - Keras *(Upcoming)*
-- MediaPipe Hands
-- Computer Vision
+- Scikit-learn *(Upcoming)*
 
 ---
 
@@ -148,6 +155,28 @@ Gesture Recognition (Upcoming)
      │
      ▼
 Prediction
+```
+## 🌐 API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/` | Root Endpoint |
+| GET | `/health` | Backend Health Check |
+| POST | `/predict` | Gesture Prediction (Placeholder) |
+| GET | `/lessons` | Get All Lessons |
+| GET | `/lessons/{id}` | Get Lesson Details |
+| POST | `/assessment/start/{lesson_id}` | Start Practice |
+| GET | `/assessment/process` | Process Landmarks |
+| POST | `/assessment/end` | End Practice |
+| POST | `/sessions/start/{lesson_id}` | Start Session |
+| POST | `/sessions/{session_id}/attempt` | Increase Attempt Count |
+| POST | `/sessions/{session_id}/end` | End Session |
+| GET | `/sessions/{session_id}` | Get Session Details |
+
+Swagger Documentation
+
+```
+http://127.0.0.1:8000/docs
 ```
 
 ---
@@ -329,14 +358,20 @@ npm run dev
 
 - Project Setup
 - Frontend UI
+- FastAPI Backend
 - Backend Architecture
+- REST APIs
+- Lesson Module
+- Session Management
+- Assessment Workflow
 - Dataset Utilities
 - Webcam Module
 - MediaPipe Integration
 - FPS Counter
 - Landmark Extraction
 - JSON Capture
-
+- Logging
+- Configuration
 ---
 
 ### Phase 2 🚧
