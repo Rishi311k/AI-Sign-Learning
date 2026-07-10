@@ -6,6 +6,7 @@ from app.api.routers.lesson import router as lesson_router
 from app.api.routers.assessment import router as assessment_router
 from app.api.routers.session import router as session_router
 from app.core.logging_config import setup_logging
+from app.api.routers.preprocessing import router as preprocessing_router
 
 logger = setup_logging()
 
@@ -23,7 +24,7 @@ app.include_router(prediction_router)
 app.include_router(lesson_router)
 app.include_router(assessment_router)
 app.include_router(session_router)
-
+app.include_router(preprocessing_router)
 @app.get("/")
 def root():
     return {

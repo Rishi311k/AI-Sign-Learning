@@ -1,24 +1,23 @@
 import time
 
-from app.ai.gesture_recognition.predictor import GesturePredictor
-from app.schemas.prediction_schema import PredictionResponse
+from app.ai.gesture_recognition.model_loader import ModelLoader
 
 
 class GestureService:
 
     def __init__(self):
-        self.predictor = GesturePredictor()
+        self.model_loader = ModelLoader()
 
-    def predict(self):
+    def predict(self, landmarks):
 
-        start = time.perf_counter()
+        start_time = time.time()
 
-        result = self.predictor.predict(None)
+        prediction = self.model_loader.predict(landmarks)
 
-        processing_time = round(time.perf_counter() - start, 6)
+        processing_time = time.time() - start_time
 
-        return PredictionResponse(
-            prediction=result["prediction"],
-            confidence=result["confidence"],
-            processing_time=processing_time,
-        )
+        return {
+            "prediction": prediction,
+            "confidence": 100.0,  # Temporary
+            "processing_time": round(processing_time, 4)
+        }
